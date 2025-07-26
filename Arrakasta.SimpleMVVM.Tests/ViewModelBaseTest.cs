@@ -1,4 +1,8 @@
-﻿namespace Arrakasta.SimpleMVVM.Tests;
+﻿using Arrakasta.SimpleMVVM.Commands;
+using Arrakasta.SimpleMVVM.Messengers;
+using System.Windows.Input;
+
+namespace Arrakasta.SimpleMVVM.Tests;
 
 public class ViewModelBaseTest
 {
@@ -38,13 +42,48 @@ public class ViewModelBaseTest
         Assert.False(propertyChangedRaised);
     }
 
+    [Fact]
+    public void Set_ShouldNotifyMainViewModel_WhenMessageIsSent()
+    {
+        string? receivedMessage = null;
+        Messenger.Default.Subscribe<string>(message => receivedMessage = message);
+        var mainViewModel = new TestViewModel
+        {
+            Message = "Hello from TestViewModel"
+        };
+        mainViewModel.SendMessageCommand.Execute(null);
+        Assert.Equal("Hello from TestViewModel", receivedMessage);
+    }
+
+
     private class TestViewModel : ViewModelBase
     {
         private string? _testProperty;
+
         public string? TestProperty
         {
             get => _testProperty;
             set => Set(ref _testProperty, value);
+        }
+
+        private string _message;
+
+        public string Message
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+
+        public ICommand SendMessageCommand { get; }
+
+        public TestViewModel()
+        {
+            SendMessageCommand = new RelayCommand(SendMessage);
+        }
+
+        private void SendMessage()
+        {
+            Messenger.Send(Message);
         }
     }
 }

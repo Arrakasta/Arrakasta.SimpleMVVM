@@ -1,5 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Arrakasta.SimpleMVVM.Commands;
 using Arrakasta.SimpleMVVM.Messengers;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Arrakasta.SimpleMVVM;
 
@@ -15,3 +17,5 @@ public class ViewModelBase(IMessenger? messenger = null) : ObservableObject
         return true;
     }
 }
+
+
