@@ -1,4 +1,4 @@
-﻿using Arrakasta.SimpleMVVM.Messengers;
+using Arrakasta.SimpleMVVM.Messengers;
 
 namespace Arrakasta.SimpleMVVM.Tests;
 
