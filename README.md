@@ -7,6 +7,7 @@ Arrakasta.SimpleMVVM is a lightweight and easy-to-use MVVM (Model-View-ViewModel
 - `ObservableObject`: Base class for property change notifications (INotifyPropertyChanged).
 - `ViewModelBase`: Simplifies ViewModel creation and property management.
 - `RelayCommand` and `RelayCommand<T>`: Flexible command implementations for UI actions.
+- `AsyncRelayCommand` and `AsyncRelayCommand<T>`: Awaitable command variants for long-running operations.
 - `Messenger` and `IMessenger`: Decoupled communication between ViewModels and components.
 - `CommandManager`: Centralized command state management.
 - Minimal dependencies and cross-platform support.
