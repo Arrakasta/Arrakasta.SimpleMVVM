@@ -24,7 +24,11 @@ public class RelayCommand<T> : IRaiseCanExecuteChanged
         _execute(CastParameter(parameter));
     }
 
-    public bool CanExecute(object? parameter) => _canExecute?.Invoke(CastParameter(parameter)) ?? true;
+    public bool CanExecute(object? parameter)
+    {
+        var param = CastParameter(parameter);
+        return _canExecute?.Invoke(param) ?? true;
+    }
 
     private static T CastParameter(object? parameter)
     {

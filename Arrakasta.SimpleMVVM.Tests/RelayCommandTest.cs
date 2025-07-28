@@ -77,9 +77,13 @@ public class RelayCommandTest
     [Fact]
     public void RelayCommand_WithWrongParameterType_ShouldThrow()
     {
-        var command = new RelayCommand<string>(_ => { });
-        Assert.Throws<ArgumentException>(() => command.Execute(42));
-        Assert.Throws<ArgumentException>(() => command.CanExecute(42));
+        var commandWithoutCanExecuteDelegate = new RelayCommand<string>(_ => { });
+        Assert.Throws<ArgumentException>(() => commandWithoutCanExecuteDelegate.Execute(42));
+        Assert.Throws<ArgumentException>(() => commandWithoutCanExecuteDelegate.CanExecute(42));
+
+        var commandWithCanExecuteDelegate = new RelayCommand<string>(_ => { }, _ => true);
+        Assert.Throws<ArgumentException>(() => commandWithCanExecuteDelegate.Execute(42));
+        Assert.Throws<ArgumentException>(() => commandWithCanExecuteDelegate.CanExecute(42));
     }
 }
 
