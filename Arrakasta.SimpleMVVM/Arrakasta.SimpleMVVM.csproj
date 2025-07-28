@@ -4,6 +4,17 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- Package metadata for NuGet -->
+    <PackageId>Arrakasta.SimpleMVVM</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Arrakasta</Authors>
+    <Company>Arrakasta</Company>
+    <Product>Arrakasta.SimpleMVVM</Product>
+    <Description>Lightweight MVVM toolkit for .NET 8 applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>

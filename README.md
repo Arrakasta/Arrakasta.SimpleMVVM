@@ -50,6 +50,12 @@ public class MainViewModel : ViewModelBase
 
 Unit tests are available in the `Arrakasta.SimpleMVVM.Tests` project.
 
+## Continuous Integration
+
+The project uses a GitHub Actions workflow to build, test and publish the
+package to NuGet. Packages are pushed when a tag starting with `v` is created
+and the `NUGET_API_KEY` secret is configured in the repository settings.
+
 ## License
 
 This project is licensed under the MIT License.
