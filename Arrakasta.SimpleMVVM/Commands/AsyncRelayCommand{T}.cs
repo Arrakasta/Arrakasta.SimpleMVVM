@@ -2,7 +2,7 @@ using System.Windows.Input;
 
 namespace Arrakasta.SimpleMVVM.Commands;
 
-public class AsyncRelayCommand<T> : IRaiseCanExecuteChanged
+public class AsyncRelayCommand<T> : ICommand, IRaiseCanExecuteChanged
 {
     private readonly Func<T, Task> _execute;
     private readonly Func<T, bool>? _canExecute;
