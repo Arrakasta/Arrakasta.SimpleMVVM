@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <!-- Package metadata for NuGet -->
     <PackageId>Arrakasta.SimpleMVVM</PackageId>
-    <Version>1.0.0</Version>
+    <Version>$(PackageVersion)</Version>
     <Authors>Arrakasta</Authors>
     <Company>Arrakasta</Company>
     <Product>Arrakasta.SimpleMVVM</Product>
