@@ -45,6 +45,7 @@ public class ViewModelBaseTest
     [Fact]
     public void Set_ShouldNotifyMainViewModel_WhenMessageIsSent()
     {
+        Messenger.Default.ClearSubscriptions();
         string? receivedMessage = null;
         Messenger.Default.Subscribe<string>(message => receivedMessage = message);
         var mainViewModel = new TestViewModel

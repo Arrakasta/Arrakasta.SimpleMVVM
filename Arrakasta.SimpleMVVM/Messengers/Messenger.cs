@@ -48,4 +48,9 @@ public class Messenger : IMessenger
             handler(message);
         }
     }
+
+    public void ClearSubscriptions()
+    {
+        _handlers.Clear();
+    }
 }
