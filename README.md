@@ -28,7 +28,7 @@ public class MainViewModel : ViewModelBase
     public string Message
     {
         get => _message;
-        set => SetProperty(ref _message, value);
+        set => Set(ref _message, value);
     }
 
     public ICommand SendMessageCommand { get; }
