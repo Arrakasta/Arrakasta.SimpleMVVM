@@ -64,4 +64,22 @@ public class RelayCommandTest
         command.RaiseCanExecuteChanged();
         Assert.True(canExecuteChangedRaised);
     }
+
+    [Fact]
+    public void RelayCommand_WithNullParameter_ShouldUseDefault()
+    {
+        int result = -1;
+        var command = new RelayCommand<int>(param => result = param);
+        command.Execute(null);
+        Assert.Equal(0, result);
+    }
+
+    [Fact]
+    public void RelayCommand_WithWrongParameterType_ShouldThrow()
+    {
+        var command = new RelayCommand<string>(_ => { });
+        Assert.Throws<ArgumentException>(() => command.Execute(42));
+        Assert.Throws<ArgumentException>(() => command.CanExecute(42));
+    }
 }
+

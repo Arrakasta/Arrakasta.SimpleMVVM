@@ -20,10 +20,26 @@ public class RelayCommand<T> : IRaiseCanExecuteChanged
         {
             return;
         }
-        _execute((T)parameter!);
+
+        _execute(CastParameter(parameter));
     }
 
-    public bool CanExecute(object? parameter) => _canExecute?.Invoke((T)parameter!) ?? true;
+    public bool CanExecute(object? parameter) => _canExecute?.Invoke(CastParameter(parameter)) ?? true;
+
+    private static T CastParameter(object? parameter)
+    {
+        if (parameter is null)
+        {
+            return default!;
+        }
+
+        if (parameter is not T value)
+        {
+            throw new ArgumentException($"Expected parameter of type {typeof(T)}, got {parameter.GetType()}");
+        }
+
+        return value;
+    }
 
     public void RaiseCanExecuteChanged()
     {
