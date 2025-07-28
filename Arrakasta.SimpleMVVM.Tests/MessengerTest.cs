@@ -26,6 +26,7 @@ public class MessengerTest
     [Fact]
     public void DefaultMessenger_ShouldBeSingleton()
     {
+        Messenger.Default.ClearSubscriptions();
         var messenger1 = Messenger.Default;
         var messenger2 = Messenger.Default;
         Assert.Same(messenger1, messenger2);
@@ -33,6 +34,7 @@ public class MessengerTest
     [Fact]
     public void DefaultMessenger_ShouldSendMessages()
     {
+        Messenger.Default.ClearSubscriptions();
         bool messageReceived = false;
         Messenger.Default.Subscribe<string>(message => messageReceived = true);
         Messenger.Default.Send("Test Message");
