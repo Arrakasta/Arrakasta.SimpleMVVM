@@ -1,4 +1,4 @@
-﻿namespace Arrakasta.SimpleMVVM.Commands;
+namespace Arrakasta.SimpleMVVM.Commands;
 
 public class RelayCommand<T> : IRaiseCanExecuteChanged
 {

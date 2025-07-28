@@ -1,4 +1,4 @@
-﻿using Arrakasta.SimpleMVVM.Commands;
+using Arrakasta.SimpleMVVM.Commands;
 using Arrakasta.SimpleMVVM.Messengers;
 using System.Windows.Input;
 

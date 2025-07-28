@@ -1,4 +1,4 @@
-﻿namespace Arrakasta.SimpleMVVM.Tests;
+namespace Arrakasta.SimpleMVVM.Tests;
 
 public class ObservableObjectTest
 {

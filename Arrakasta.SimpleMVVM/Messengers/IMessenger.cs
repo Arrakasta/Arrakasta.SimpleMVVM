@@ -1,4 +1,4 @@
-﻿namespace Arrakasta.SimpleMVVM.Messengers;
+namespace Arrakasta.SimpleMVVM.Messengers;
 
 public interface IMessenger
 {
