@@ -38,7 +38,7 @@ This Code of Conduct applies within all community spaces (repositories, issue tr
 
 #### **5. Reporting**
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [Alexey Nis](mailto:delexzone@gmail.com). All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [contact@arrakasta.org](mailto:contact@arrakasta.org). All complaints will be reviewed and investigated promptly and fairly.
 
 Community leaders are obligated to respect the privacy of the reporter of any incident.
 
