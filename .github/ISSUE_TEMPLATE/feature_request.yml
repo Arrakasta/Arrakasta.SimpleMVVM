@@ -1,0 +1,49 @@
+name: Feature Request
+description: Suggest an idea or enhancement for this project
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees:
+  - delexzone
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting an idea! We appreciate community feedback.
+
+  - type: textarea
+    id: related-problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: Please describe the problem you are facing.
+      placeholder: "It's currently impossible to do X because method Y is missing. This forces me to write a lot of boilerplate code to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: |
+        Describe how you would like the new functionality to work. Try to imagine what the API would look like.
+        ```csharp
+        // Example API
+        public interface IArrakastaClient
+        {
+            Task<Result> NewAwesomeMethodAsync(string parameter);
+        }
+        ```
+      render: csharp
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots about the feature request here.

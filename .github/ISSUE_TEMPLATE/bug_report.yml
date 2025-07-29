@@ -1,0 +1,71 @@
+name: Bug Report
+description: Create a report to help us improve the project
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - delexzone
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "When calling method X with parameter Y, a NullReferenceException occurs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Code to Reproduce
+      description: |
+        Please provide a minimal, self-contained code snippet that demonstrates the bug.
+        ```csharp
+        // Your code here
+        ```
+      placeholder: |
+        var client = new ArrakastaClient();
+        client.DoSomething(null); // Expected ArgumentNullException, but got NullReferenceException
+      render: csharp
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: input
+    id: project-version
+    attributes:
+      label: Project Version
+      description: Please specify the version of the `Arrakasta` library you are using.
+      placeholder: "e.g. 1.0.2"
+    validations:
+      required: true
+
+  - type: input
+    id: dotnet-version
+    attributes:
+      label: .NET Version
+      description: Please specify the version of .NET you are working with (`dotnet --version`).
+      placeholder: "e.g. 8.0.100"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: Please specify your OS and its version.
+      placeholder: "e.g. Windows 11, Ubuntu 22.04"
+    validations:
+      required: true
