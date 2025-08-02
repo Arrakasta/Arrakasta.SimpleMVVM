@@ -11,7 +11,7 @@ public class ViewModelBaseTest
     {
         var viewModel = new TestViewModel();
         bool propertyChangedRaised = false;
-        viewModel.PropertyChanged += (sender, args) =>
+        viewModel.PropertyChanged += (_, args) =>
         {
             if (args.PropertyName == nameof(TestViewModel.TestProperty))
             {
@@ -31,7 +31,7 @@ public class ViewModelBaseTest
             TestProperty = "Initial Value"
         };
         bool propertyChangedRaised = false;
-        viewModel.PropertyChanged += (sender, args) =>
+        viewModel.PropertyChanged += (_, args) =>
         {
             if (args.PropertyName == nameof(TestViewModel.TestProperty))
             {
@@ -67,7 +67,7 @@ public class ViewModelBaseTest
             set => Set(ref _testProperty, value);
         }
 
-        private string _message;
+        private string _message = string.Empty;
 
         public string Message
         {

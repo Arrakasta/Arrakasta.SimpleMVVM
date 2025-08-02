@@ -9,7 +9,7 @@ public class MessengerTest
     {
         var messenger = new Messenger();
         bool messageReceived = false;
-        messenger.Subscribe<string>(message => messageReceived = true);
+        messenger.Subscribe<string>(_ => messageReceived = true);
         messenger.Send("Test Message");
         Assert.True(messageReceived);
     }
@@ -17,7 +17,7 @@ public class MessengerTest
     public void Unsubscribe_ShouldRemoveHandler()
     {
         var messenger = new Messenger();
-        Action<string> handler = message => { };
+        Action<string> handler = _ => { };
         messenger.Subscribe(handler);
         messenger.Unsubscribe(handler);
         messenger.Send("Test Message"); // Should not throw
@@ -36,7 +36,7 @@ public class MessengerTest
     {
         Messenger.Default.ClearSubscriptions();
         bool messageReceived = false;
-        Messenger.Default.Subscribe<string>(message => messageReceived = true);
+        Messenger.Default.Subscribe<string>(_ => messageReceived = true);
         Messenger.Default.Send("Test Message");
         Assert.True(messageReceived);
     }
