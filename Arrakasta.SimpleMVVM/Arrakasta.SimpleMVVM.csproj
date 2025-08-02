@@ -1,21 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<UseWpf>true</UseWpf>
-    <!-- Package metadata for NuGet -->
-    <PackageId>Arrakasta.SimpleMVVM</PackageId>
-    <Version>$(PackageVersion)</Version>
-    <Authors>Arrakasta</Authors>
-    <Company>Arrakasta</Company>
-    <Product>Arrakasta.SimpleMVVM</Product>
-    <Description>Lightweight MVVM toolkit for .NET 8 applications.</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</PackageProjectUrl>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWpf>true</UseWpf>
+		<!-- Package metadata for NuGet -->
+		<PackageId>Arrakasta.SimpleMVVM</PackageId>
+		<Version>$(PackageVersion)</Version>
+		<Authors>Arrakasta</Authors>
+		<Company>Arrakasta</Company>
+		<Product>Arrakasta.SimpleMVVM</Product>
+		<Description>Lightweight MVVM toolkit for .NET 8 applications.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</PackageProjectUrl>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
