@@ -2,6 +2,11 @@
 
 Arrakasta.SimpleMVVM is a lightweight and easy-to-use MVVM (Model-View-ViewModel) framework for .NET 8 applications. It provides essential building blocks for implementing the MVVM pattern with minimal overhead.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET 8](https://img.shields.io/badge/.NET-8-blue.svg)](https://dotnet.microsoft.com/)
+[![Build Status](https://github.com/Arrakasta/Arrakasta.SimpleMVVM/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Arrakasta/Arrakasta.SimpleMVVM/actions)
+[![NuGet Version](https://img.shields.io/nuget/v/Arrakasta.SimpleMVVM.svg)](https://www.nuget.org/packages/Arrakasta.SimpleMVVM/)
+
 ## Features
 
 - `ObservableObject`: Base class for property change notifications (INotifyPropertyChanged).
