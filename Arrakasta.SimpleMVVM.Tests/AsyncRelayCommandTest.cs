@@ -35,20 +35,10 @@ public class AsyncRelayCommandTest
     }
 
     [Fact]
-    public void AsyncRelayCommand_ShouldRaiseCanExecuteChanged()
-    {
-        var command = new AsyncRelayCommand(() => Task.CompletedTask);
-        bool raised = false;
-        command.CanExecuteChanged += (_, _) => raised = true;
-        command.RaiseCanExecuteChanged();
-        Assert.True(raised);
-    }
-
-    [Fact]
     public async Task AsyncRelayCommand_Generic_ShouldExecuteAsyncAction()
     {
         var tcs = new TaskCompletionSource();
-        var command = new AsyncRelayCommand<int>(i =>
+        var command = new AsyncRelayCommand<int>(_ =>
         {
             tcs.SetResult();
             return Task.CompletedTask;
@@ -62,24 +52,14 @@ public class AsyncRelayCommandTest
     public async Task AsyncRelayCommand_Generic_ShouldNotExecuteWhenCanExecuteFalse()
     {
         var tcs = new TaskCompletionSource();
-        var command = new AsyncRelayCommand<int>(i =>
+        var command = new AsyncRelayCommand<int>(_ =>
         {
             tcs.SetResult();
             return Task.CompletedTask;
-        }, i => false);
+        }, _ => false);
 
         command.Execute(5);
         await Task.Delay(100);
         Assert.False(tcs.Task.IsCompleted);
-    }
-
-    [Fact]
-    public void AsyncRelayCommand_Generic_ShouldRaiseCanExecuteChanged()
-    {
-        var command = new AsyncRelayCommand<int>(_ => Task.CompletedTask);
-        bool raised = false;
-        command.CanExecuteChanged += (_, _) => raised = true;
-        command.RaiseCanExecuteChanged();
-        Assert.True(raised);
     }
 }

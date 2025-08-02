@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<UseWpf>true</UseWpf>
 		<!-- Package metadata for NuGet -->
 		<PackageId>Arrakasta.SimpleMVVM</PackageId>
 		<Version>$(PackageVersion)</Version>
 		<Authors>Arrakasta</Authors>
 		<Company>Arrakasta</Company>
 		<Product>Arrakasta.SimpleMVVM</Product>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Lightweight MVVM toolkit for .NET 8 applications.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/Arrakasta/Arrakasta.SimpleMVVM</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

@@ -22,16 +22,6 @@ public class RelayCommandTest
     }
 
     [Fact]
-    public void RelayCommand_ShouldRaiseCanExecuteChanged()
-    {
-        bool canExecuteChangedRaised = false;
-        var command = new RelayCommand(() => { }, () => true);
-        command.CanExecuteChanged += (sender, args) => canExecuteChangedRaised = true;
-        command.RaiseCanExecuteChanged();
-        Assert.True(canExecuteChangedRaised);
-    }
-
-    [Fact]
     public void RelayCommand_ShouldThrowIfExecuteIsNull()
     {
         Assert.Throws<ArgumentNullException>(() => new RelayCommand(null!));
@@ -41,7 +31,7 @@ public class RelayCommandTest
     public void RelayCommand_ShouldExecuteWithParameter()
     {
         bool executed = false;
-        var command = new RelayCommand<object>(param => executed = true);
+        var command = new RelayCommand<object>(_ => executed = true);
         command.Execute(new object());
         Assert.True(executed);
     }
@@ -50,19 +40,9 @@ public class RelayCommandTest
     public void RelayCommand_ShouldNotExecuteWithParameterWhenCanExecuteFalse()
     {
         bool executed = false;
-        var command = new RelayCommand<object>(param => executed = true, param => false);
+        var command = new RelayCommand<object>(_ => executed = true, _ => false);
         command.Execute(new object());
         Assert.False(executed);
-    }
-
-    [Fact]
-    public void RelayCommand_ShouldRaiseCanExecuteChangedWithParameter()
-    {
-        bool canExecuteChangedRaised = false;
-        var command = new RelayCommand<object>(param => { }, param => true);
-        command.CanExecuteChanged += (sender, args) => canExecuteChangedRaised = true;
-        command.RaiseCanExecuteChanged();
-        Assert.True(canExecuteChangedRaised);
     }
 
     [Fact]

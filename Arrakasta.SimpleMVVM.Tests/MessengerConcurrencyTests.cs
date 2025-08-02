@@ -1,6 +1,4 @@
 using Arrakasta.SimpleMVVM.Messengers;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Arrakasta.SimpleMVVM.Tests;
 

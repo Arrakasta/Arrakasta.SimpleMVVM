@@ -1,29 +1,22 @@
+using System.Windows.Input;
+
 namespace Arrakasta.SimpleMVVM.Commands;
 
-public class RelayCommand : IRaiseCanExecuteChanged
+public class RelayCommand(Action execute, Func<bool>? canExecute = null) : ICommand
 {
-    private readonly Action _execute;
-    private readonly Func<bool>? _canExecute;
+    private readonly Action _execute = execute ?? throw new ArgumentNullException(nameof(execute));
 
-    public RelayCommand(Action execute, Func<bool>? canExecute = null)
+    public event EventHandler? CanExecuteChanged
     {
-        _canExecute = canExecute;
-        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-        CommandManager.Register(this);
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
     }
 
-    public bool CanExecute(object? parameter) => _canExecute?.Invoke() ?? true;
+    public bool CanExecute(object? parameter) => canExecute?.Invoke() ?? true;
 
     public void Execute(object? parameter)
     {
         if(!CanExecute(parameter)) return;
         _execute();
-    }
-
-    public event EventHandler? CanExecuteChanged;
-
-    public void RaiseCanExecuteChanged()
-    {
-        CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

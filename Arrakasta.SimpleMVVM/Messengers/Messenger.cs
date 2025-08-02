@@ -51,6 +51,9 @@ public class Messenger : IMessenger
 
     public void ClearSubscriptions()
     {
-        _handlers.Clear();
+        lock (_lock)
+        {
+            _handlers.Clear();
+        }
     }
 }

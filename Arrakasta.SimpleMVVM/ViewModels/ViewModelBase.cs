@@ -1,7 +1,5 @@
-using Arrakasta.SimpleMVVM.Commands;
 using Arrakasta.SimpleMVVM.Messengers;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace Arrakasta.SimpleMVVM;
 

@@ -7,7 +7,7 @@ public class ObservableObjectTest
     {
         var obj = new TestObservableObject();
         bool propertyChangedRaised = false;
-        obj.PropertyChanged += (sender, args) =>
+        obj.PropertyChanged += (_, args) =>
         {
             if (args.PropertyName == nameof(TestObservableObject.TestProperty))
             {
@@ -28,7 +28,7 @@ public class ObservableObjectTest
         };
 
         bool propertyChangedRaised = false;
-        obj.PropertyChanged += (sender, args) =>
+        obj.PropertyChanged += (_, args) =>
         {
             if (args.PropertyName == nameof(TestObservableObject.TestProperty))
             {
