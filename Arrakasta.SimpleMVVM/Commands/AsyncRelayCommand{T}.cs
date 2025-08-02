@@ -2,25 +2,21 @@ using System.Windows.Input;
 
 namespace Arrakasta.SimpleMVVM.Commands;
 
-public class AsyncRelayCommand<T> : ICommand, IRaiseCanExecuteChanged
+public class AsyncRelayCommand<T>(Func<T, Task> execute, Func<T, bool>? canExecute = null) : ICommand
 {
-    private readonly Func<T, Task> _execute;
-    private readonly Func<T, bool>? _canExecute;
+    private readonly Func<T, Task> _execute = execute ?? throw new ArgumentNullException(nameof(execute));
     private bool _isExecuting;
 
-    public event EventHandler? CanExecuteChanged;
-
-    public AsyncRelayCommand(Func<T, Task> execute, Func<T, bool>? canExecute = null)
+    public event EventHandler? CanExecuteChanged
     {
-        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-        _canExecute = canExecute;
-        CommandManager.Register(this);
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
     }
 
     public bool CanExecute(object? parameter)
     {
         var param = CastParameter(parameter);
-        return !_isExecuting && (_canExecute?.Invoke(param) ?? true);
+        return !_isExecuting && (canExecute?.Invoke(param) ?? true);
     }
 
     public async void Execute(object? parameter)
@@ -30,13 +26,13 @@ public class AsyncRelayCommand<T> : ICommand, IRaiseCanExecuteChanged
         try
         {
             _isExecuting = true;
-            RaiseCanExecuteChanged();
+            CommandManager.InvalidateRequerySuggested();
             await _execute(param);
         }
         finally
         {
             _isExecuting = false;
-            RaiseCanExecuteChanged();
+            CommandManager.InvalidateRequerySuggested();
         }
     }
 
@@ -54,6 +50,4 @@ public class AsyncRelayCommand<T> : ICommand, IRaiseCanExecuteChanged
 
         return value;
     }
-
-    public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 }
