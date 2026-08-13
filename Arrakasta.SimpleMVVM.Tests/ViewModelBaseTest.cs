@@ -4,6 +4,7 @@ using System.Windows.Input;
 
 namespace Arrakasta.SimpleMVVM.Tests;
 
+[Collection("Messenger.Default")]
 public class ViewModelBaseTest
 {
     [Fact]
