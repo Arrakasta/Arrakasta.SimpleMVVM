@@ -2,6 +2,7 @@ using Arrakasta.SimpleMVVM.Messengers;
 
 namespace Arrakasta.SimpleMVVM.Tests;
 
+[Collection("Messenger.Default")]
 public class MessengerTest
 {
     [Fact]
